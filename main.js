@@ -66,7 +66,7 @@ const checkUpdate =  (mockData) => {
     //当前时间对比
     const now = new Date().getTime();
     // 如果小于一个小时
-    const anHour = 60 * 60 * 1000; // 一个
+    const anHour = 60 * 63 * 1000; // 一个
     if(now - createTime < anHour) {
         console.log('更新小于一个小时');
       return true
