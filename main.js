@@ -29,35 +29,6 @@ const reqUrl = async () => {
       "mode": "cors",
       "credentials": "include"
     });
-  
-    const isString = (data) => Object.prototype.toString.call(data) === "[object String]";
-    const isObject = (data) => Object.prototype.toString.call(data) === "[object Object]";
-    
-    const decodeEncryptString = (text) => {
-      const isStringData = isString(text);
-      let data = text;
-      try {
-        if (isStringData) {
-  
-          const tmpDataObj = JSON.parse(text);
-          const isBareObjectData = isObject(tmpDataObj == null ? void 0 : tmpDataObj.data);
-          const isBareStringData = isString(tmpDataObj == null ? void 0 : tmpDataObj.data);
-          if (isBareObjectData) {
-            data = tmpDataObj == null ? void 0 : tmpDataObj.data;
-          } else if (isBareStringData) {
-            data = bareDecode(tmpDataObj == null ? void 0 : tmpDataObj.data);
-          }
-        }
-  } catch (error) {
-    console.log('error', error);
-      }
-      return data;
-    };
-   
-    const bareDecode = (text) => {
-      return JSON.parse(atob(atob(atob(text))));
-    };
-  
 
     
     const data =  res.text();
@@ -67,6 +38,33 @@ const reqUrl = async () => {
     return data2;
   }
 
+  const isString = (data) => Object.prototype.toString.call(data) === "[object String]";
+  const isObject = (data) => Object.prototype.toString.call(data) === "[object Object]";
+  
+  const decodeEncryptString = (text) => {
+    const isStringData = isString(text);
+    let data = text;
+    try {
+      if (isStringData) {
+
+        const tmpDataObj = JSON.parse(text);
+        const isBareObjectData = isObject(tmpDataObj == null ? void 0 : tmpDataObj.data);
+        const isBareStringData = isString(tmpDataObj == null ? void 0 : tmpDataObj.data);
+        if (isBareObjectData) {
+          data = tmpDataObj == null ? void 0 : tmpDataObj.data;
+        } else if (isBareStringData) {
+          data = bareDecode(tmpDataObj == null ? void 0 : tmpDataObj.data);
+        }
+      }
+} catch (error) {
+  console.log('error', error);
+    }
+    return data;
+  };
+ 
+  const bareDecode = (text) => {
+    return JSON.parse(atob(atob(atob(text))));
+  };
 
 const checkUpdate =  (mockData) => {
     const mockData2 = JSON.parse(mockData);
@@ -108,7 +106,7 @@ const notify = async (contents) => {
 }
 
 const main = async () => {
-  const listData =  reqUrl();
+  const listData =  await reqUrl();
 
   const isUpdate =  checkUpdate(listData)
 
