@@ -1,5 +1,5 @@
 // 引入fetch 
-const fetch = require('node-fetch');
+// const fetch = require('node-fetch');
 // const fs = require('fs');
 // const path = require('path');
 // const jsonPath = path.resolve(__dirname, './test.json');
@@ -113,7 +113,7 @@ const main = async () => {
   const test = true
   if(test || isUpdate) {
 
-    //  await notify(['更新了', '小沫'])
+     await notify(['更新了', '小沫'])
 
   }
 }
