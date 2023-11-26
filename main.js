@@ -108,7 +108,17 @@ const notify = async (contents) => {
 }
 
 const main = async () => {
-  await notify(await glados())
+  const listData =  reqUrl();
+
+  const isUpdate =  checkUpdate(listData)
+
+  const test = true
+  if(test || isUpdate) {
+
+     await notify(['更新了', '小沫'])
+
+  }
 }
+
 
 main()
