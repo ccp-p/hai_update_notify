@@ -60,7 +60,7 @@ const reqUrl = async () => {
   
 
     
-    const data = await res.text();
+    const data =  res.text();
     console.log('data', data);
     const data2 = decodeEncryptString(data)
     console.log('data2', data2);
