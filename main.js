@@ -26,7 +26,6 @@ const reqUrl = async () => {
     
     const data =  await res.text();
     const data2 = decodeEncryptString(data)
-    console.log('data2', data2);
     return data2;
   }
 
@@ -62,7 +61,7 @@ const checkUpdate =  (mockData) => {
 
     // 拿出第一个
     const result = mockData2.results[0];
-    console.log('result', result);
+    console.log('result', result.createTime);
     const createTime= new Date(result.createTime).getTime();
     //当前时间对比
     const now = new Date().getTime();
@@ -70,7 +69,6 @@ const checkUpdate =  (mockData) => {
     const anHour = 60 * 60 * 1000; // 一个
     if(now - createTime < anHour) {
         console.log('更新小于一个小时');
-      console.log('result', result);
       return true
     //   通知
     }else{
