@@ -83,7 +83,6 @@ const checkUpdate =  (mockData) => {
 
 const notify = async (contents) => {
   const token = process.env.NOTIFY
-  if (!token || !contents) return
   await fetch(`https://www.pushplus.plus/send`, {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
@@ -93,6 +92,10 @@ const notify = async (contents) => {
       content: contents.join('<br>'),
       template: 'markdown',
     }),
+  }).then((res)=>{
+    console.log('res', res.text());
+  }).finally(() => {
+    console.log('通知成功');
   })
 }
 
