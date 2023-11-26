@@ -102,7 +102,7 @@ const main = async () => {
 
   const isUpdate =  checkUpdate(listData)
 
-  const test = true
+  const test = false
   if(test || isUpdate) {
 
      await notify(['更新了', '小沫'])
