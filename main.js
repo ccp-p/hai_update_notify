@@ -111,3 +111,4 @@ const main = async () => {
 
   }
 }
+main()
