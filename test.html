@@ -1,9 +1,14 @@
-// 引入fetch 
-// const fetch = require('node-fetch');
-// const fs = require('fs');
-// const path = require('path');
-// const jsonPath = path.resolve(__dirname, './test.json');
-// const mockData = fs.readFileSync(jsonPath, 'utf-8');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
 
 const reqUrlPath = 'https://hja1fe.top/api/topic/node/topics?page=1&userId=24123619&type=1'
 
@@ -31,8 +36,7 @@ const reqUrl = async () => {
     });
 
     
-    const data =  res.text();
-    console.log('data', data);
+    const data =  await res.text();
     const data2 = decodeEncryptString(data)
     console.log('data2', data2);
     return data2;
@@ -66,7 +70,7 @@ const reqUrl = async () => {
   };
 
 const checkUpdate =  (mockData) => {
-    const mockData2 = JSON.parse(mockData);
+    const mockData2 = mockData
 
     // 拿出第一个
     const result = mockData2.results[0];
@@ -119,3 +123,6 @@ const main = async () => {
 
 
 main()
+
+</script>
+</html>
