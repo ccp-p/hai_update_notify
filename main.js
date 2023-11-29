@@ -119,8 +119,6 @@ const notify = async (contents) => {
 const main = async () => {
   const listData =  await reqUrl();
 
-  const isUpdate =  checkUpdate(listData)
-
   const { createTime ,nowStr,stand} = checkUpdate(listData)
 
   const test = false
