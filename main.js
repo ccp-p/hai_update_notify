@@ -65,8 +65,8 @@ const checkUpdate =  (mockData) => {
     console.log('createTimeStr', result.createTime);
     const createTime= new Date(result.createTime).getTime();
     //当前时间对比
-    const now = new Date().getTime();
-    const nowStr = new Date().toLocaleString();
+    const now = getCurrent().getTime();
+    const nowStr = getCurrent().toLocaleString();
    console.log('nowStr', nowStr)
     // 如果小于一个小时
 
@@ -93,7 +93,11 @@ const checkUpdate =  (mockData) => {
 
 }
 
-
+const getCurrent  = () => {
+  const date = new Date();
+  const chinaTime = date.toLocaleString("en-US", {timeZone: "Asia/Shanghai"});
+  return new Date(chinaTime);
+}
 const notify = async (contents) => {
   const token = process.env.NOTIFY
   await fetch(`https://www.pushplus.plus/send`, {
