@@ -78,7 +78,7 @@ const checkUpdate =  (mockData) => {
   if(stand) {
         console.log('更新小于一个小时');
       return {
-        result.createTime,
+        createTime:result.createTime,
         nowStr,
         stand,
       }
