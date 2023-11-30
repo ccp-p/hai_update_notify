@@ -70,7 +70,7 @@ const checkUpdate =  (mockData) => {
    console.log('nowStr', nowStr)
     // 如果小于一个小时
 
-  const towHour = 60 * 63 * 2 * 1000; // 两个小时
+  const towHour = 60 * 63 * 1 * 1000; // 两个小时
   console.log('towHour', towHour)
   console.log('createTime now now - createTime', createTime,now,now - createTime)
   const stand = now - createTime < towHour
@@ -78,7 +78,7 @@ const checkUpdate =  (mockData) => {
   if(stand) {
         console.log('更新小于一个小时');
       return {
-        createTime,
+        result.createTime,
         nowStr,
         stand,
       }
